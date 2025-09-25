@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Uncle Ronald 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      margin-top: 80px;
+      background: linear-gradient(45deg, #ff0000, #ff9900, #33cc33, #3399ff, #cc33ff, #ff3399);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite, popIn 1.5s ease-out forwards;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ffcc00, #ff6699, #66ccff, #66ff99);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite, fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .balloons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      border-radius: 50%;
+      animation: float 8s infinite ease-in;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: #555;
+      left: 50%;
+      top: 100px;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-300px) translateX(30px); }
+      100% { transform: translateY(-700px) translateX(-30px); }
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #ff6699, #ffcc00, #33ccff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 10s ease infinite, fadeIn 3s ease-in forwards;
+      padding: 15px 30px;
+      display: inline-block;
+      border-radius: 15px;
+    }
+
+    /* Scrollable note */
+    .note {
+      margin: 50px auto;
+      width: 80%;
+      max-width: 600px;
+      height: 180px;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 20px;
+      border-radius: 20px;
+      line-height: 1.6;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+
+    .note a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Happy Birthday Uncle Ronald 🎉</h1>
+  <p>🎉祝您生日快乐，Wish you Love Happy & Always！🎉</p>
+  <div class="message">要一直开开心心的! 🥳💖</div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="MT DJ Team - 生日快樂 (DJ Cheung 2016 Remix)(艾琳兒個人專屬單曲).mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="balloons" id="balloons"></div>
+
+  <!-- Scrollable Note -->
+  <div class="note">
+    Happy birthday pa. 🎂  
+    This is a small surprise from me and zb.  
+    May you be well, happy and healthy always.  
+    I love you pa ❤️ hope you like this present from us.  
+    <br><br>
+    👉 <a href="birthday2.html" target="_blank">Click here for your surprise gift 🎁</a>
+  </div>
+
+  <script>
+    // Generate many balloons
+    const colors = ["#ff4d6d", "#4da6ff", "#ffcc00", "#66ff99", "#ff944d", "#cc66ff"];
+    const balloonsContainer = document.getElementById("balloons");
+
+    for (let i = 0; i < 30; i++) {
+      let balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 100 + "%";
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.animationDuration = (6 + Math.random() * 5) + "s";
+      balloon.style.width = (50 + Math.random() * 60) + "px";
+      balloon.style.height = (70 + Math.random() * 90) + "px";
+      balloonsContainer.appendChild(balloon);
+    }
+  </script>
+</body>
+</html>
